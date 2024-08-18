@@ -1,8 +1,7 @@
 import os
 import psycopg2
 from dotenv import load_dotenv
-from flask import Flask, CORS
-from flask_cors import CORS
+from flask import Flask, request, jsonify
 
 CREATE_USERS_TABLE = (
     """CREATE TABLE IF NOT EXISTS users (
@@ -21,8 +20,6 @@ app = Flask(__name__)
 url = os.getenv("DATABASE_URL")
 connection = psycopg2.connect(url)
 
-cors = CORS(app, origins='*')
-
 @app.route("/", methods=['GET'])
 def home():
     return "Hello world"
@@ -35,8 +32,7 @@ def create_user():
         with connection.cursor() as cursor:
             cursor.execute(CREATE_USERS_TABLE)
             cursor.execute(INSERT_USER_RETURN_ID (username,))
-            user_id = cursor.fetchone()[0]
-    return {"id": user_id, "message": f"User created with username: {username}"}, 201
+    return {"message": f"User created with username: {username}"}, 201
     
     
 if __name__ == "__main__":
