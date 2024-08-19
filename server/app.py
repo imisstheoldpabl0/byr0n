@@ -10,7 +10,7 @@ CREATE_USERS_TABLE = (
 )
 
 INSERT_USER_RETURN_ID = (
-    """INSERT INTO users (username) VALUES ('pablo');"""
+    """INSERT INTO users (username) VALUES (%s) RETURNING id;"""
 )
 
 load_dotenv()
@@ -27,13 +27,16 @@ def home():
 @app.route("/api/user", methods=['POST'])
 def create_user():
     data = request.get_json()
+    if not data or "username" not in data:
+        return jsonify({"error": "Invalid input"}), 400
+
     username = data["username"]
     with connection:
         with connection.cursor() as cursor:
             cursor.execute(CREATE_USERS_TABLE)
-            cursor.execute(INSERT_USER_RETURN_ID (username,))
-    return {"message": f"User created with username: {username}"}, 201
-    
-    
+            cursor.execute(INSERT_USER_RETURN_ID, (username,))
+            user_id = cursor.fetchone()[0]  # Fetch the returned ID
+    return jsonify({"message": f"User created with username: {username}", "user_id": user_id}), 201
+
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
