@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "./Account.css"
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -30,7 +31,7 @@ const SignupForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id='section-account'>
       <div>
         <label>Username:</label>
         <input
@@ -61,7 +62,7 @@ const SignupForm = () => {
           required
         />
       </div>
-      <button type="submit">Sign Up</button>
+      <button type="submit" id='sign-up-button'>Sign Up</button>
     </form>
   );
 };
