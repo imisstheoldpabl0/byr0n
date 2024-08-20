@@ -5,8 +5,8 @@ import "./UserList.css"
 const UserList = () => {
 
   const fetchAPI = async () => {
-    const response = await axios.get("127.0.0.1.8080/api/user")
-    console.log(response)
+    const response = await axios.get("http://127.0.0.1:8080/api/user")
+    console.log(response.data)
   }
   fetchAPI()
 

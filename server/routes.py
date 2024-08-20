@@ -35,7 +35,7 @@ def get_users():
             cursor.execute(GET_USERS_IN_DB)
             user_data = cursor.fetchall()
     # return jsonify({"message": f"all users returned: {user_data}"})
-    return jsonify({"message": "all users returned", "data": f"{user_data}"})
+    return jsonify({"data": user_data})
 
 @routes.route("/api/user", methods=['POST'])
 def create_user():
