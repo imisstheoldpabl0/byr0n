@@ -5,7 +5,8 @@ const SignupForm = () => {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
-    password: ''
+    password: '',
+    login_status: true
   });
 
   const handleChange = (e) => {
@@ -56,16 +57,6 @@ const SignupForm = () => {
           type="password"
           name="password"
           value={formData.password}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div>
-        <label>Login-Status:</label>
-        <input
-          type="login_status"
-          name="login_status"
-          value={formData.login_status}
           onChange={handleChange}
           required
         />
