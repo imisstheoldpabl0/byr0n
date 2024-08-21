@@ -4,32 +4,21 @@ import "./UserList.css";
 import UserCard from "./UserCard/UserCard";
 
 const UserList = () => {
-
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
         // Petición HTTP
-        const url = "http://127.0.0.1:8080/api/user"
+        const url = "http://127.0.0.1:8080/api/user";
         const response = await axios.get(url);
         let users = response.data.data;
 
-        console.log(users)
-
-        /*         const userObj = {
-                  id_user: users.data[i][0],
-                  username: users.data[i][1],
-                  email: users.data[i][2],
-                  password: users.data[i][3],
-                  login_status: users.data[i][4],
-                }; */
-
-        console.log(userObj);
-        console.log("hello");
+        console.log(users);
 
         setCards(users
-          .map((i) => i));
+          .map(i => i));
+
       } catch (e) {
         setCards([]); // No pintes nada
         console.log("CATCH");
@@ -42,19 +31,14 @@ const UserList = () => {
   const paintCards = () => {
     return cards.length !== 0
       ? cards.map((card, index) => {
-        return (
-          <>
+          return (
             <UserCard
-              key={card.index}
-              username={card.index}
-              email={card.index}
-              password={card[3]}
-              login_status={[4]}
+            key={card[0]}
+            username={card[1]}
             />
-            <p>This is UserList</p>
-          </>
-        );
-      })
+            
+          );
+        })
       : "";
   };
 
@@ -66,10 +50,10 @@ const UserList = () => {
 
   return (
     <div id="user-list">
-
+      <h1>UserList</h1>
       {paintCards()}
-
-    </div>);
+    </div>
+  );
 };
 
 export default UserList;
