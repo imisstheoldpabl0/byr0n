@@ -24,6 +24,10 @@ GET_USERS_IN_DB = (
     """SELECT * FROM users"""
 )
 
+DELETE_ALL_USERS_IN_DB = (
+    """DROP TABLE users"""
+)
+
 @routes.route("/", methods=['GET'])
 def home():
     return "Hello world"
@@ -33,7 +37,16 @@ def get_users():
     with connection:
         with connection.cursor() as cursor:
             cursor.execute(GET_USERS_IN_DB)
-    return jsonify({"message": "all users returned"})
+            user_data = cursor.fetchall()
+    # return jsonify({"message": f"all users returned: {user_data}"})
+    return jsonify({"data": user_data})
+
+@routes.route("/api/user", methods=['DELETE'])
+def delete_users():
+    with connection:
+        with connection.cursor() as cursor:
+            cursor.execute(DELETE_ALL_USERS_IN_DB)
+    return jsonify({"message": "all users deleted"})
 
 @routes.route("/api/user", methods=['POST'])
 def create_user():
