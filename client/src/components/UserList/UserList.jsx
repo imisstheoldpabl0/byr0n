@@ -33,8 +33,11 @@ const UserList = () => {
       ? cards.map((card, index) => {
           return (
             <UserCard
-            key={card[0]}
+            key={index}
+            user_id={card[0]}
             username={card[1]}
+            email={card[2]}
+            password={card[3]}
             />
             
           );
@@ -50,7 +53,6 @@ const UserList = () => {
 
   return (
     <div id="user-list">
-      <h1>UserList</h1>
       {paintCards()}
     </div>
   );

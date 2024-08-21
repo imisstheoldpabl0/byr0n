@@ -1,0 +1,31 @@
+.usersTable {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  .usersTable td, 
+  .usersTable th {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+  }
+  
+  .usersTable th {
+    font-weight: normal;
+    min-width: 200px;
+  }
+  
+  .usersTable .usersTable-baqh {
+    text-align: center;
+    vertical-align: top;
+  }
+  
+  .usersTable .usersTable-0lax {
+    text-align: left;
+    vertical-align: top;
+  }

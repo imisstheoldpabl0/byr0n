@@ -1,4 +1,4 @@
-#section-account {
+#larger-section {
     display: flex;
     flex-direction: column;
     margin: 24px;
@@ -7,29 +7,40 @@
     height: 400px;
     align-items: center;
 
-    div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    #section-account {
 
-        label {
+        div {
             display: flex;
-            justify-content: start;
-            margin: 12px;
-            margin-top: 24px;
+            flex-direction: column;
+            align-items: center;
+
+            label {
+                display: flex;
+                justify-content: start;
+                margin: 12px;
+                margin-top: 24px;
+            }
+
+            input {
+                width: 150px;
+            }
         }
 
-        input {
-            width: 150px;
-            padding-left: 24px;
+        #sign-up-button {
+            width: 100px;
+            margin: 24px;
+            background-color: rgb(218, 222, 222);
+            align-items: center;
+            justify-content: center;
+        }
+
+        #delete-button {
+            width: 100px;
+            margin: 24px;
+            background-color: rgb(218, 222, 222);
+            align-items: center;
+            justify-content: center;
         }
     }
 
-    #sign-up-button {
-        width: 100px;
-        margin: 24px;
-        background-color: rgb(218, 222, 222);
-        align-items: center;
-        justify-content: center;
-    }
 }
