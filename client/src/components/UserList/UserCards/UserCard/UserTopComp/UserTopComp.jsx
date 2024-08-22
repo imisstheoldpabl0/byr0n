@@ -3,9 +3,7 @@ import "./UserTopComp.css";
 
 const UserTopComp = () => {
   return (
-    <section className="top-row">
-      <table>
-        <thead>
+        <thead className="top-row">
           <tr>
             <th>user_id</th>
             <th>username</th>
@@ -13,8 +11,6 @@ const UserTopComp = () => {
             <th>password</th>
           </tr>
         </thead>
-      </table>
-    </section>
   );
 };
 
