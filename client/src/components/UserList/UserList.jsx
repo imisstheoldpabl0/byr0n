@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./UserList.css";
 import UserCard from "./UserCard/UserCard";
+import UserTopComp from "./UserCard/UserTopComp/UserTopComp";
+
 
 const UserList = () => {
   const [cards, setCards] = useState([]);
@@ -53,6 +55,7 @@ const UserList = () => {
 
   return (
     <div id="user-list">
+      <UserTopComp/>
       {paintCards()}
     </div>
   );
