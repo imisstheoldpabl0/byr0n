@@ -57,8 +57,10 @@ const UserList = () => {
   return (
     <div id="user-list">
       <table>
+      <tbody className="usersTable">
         <UserTopComp/>
         <UserCards paintCards={paintCards()}/>
+      </tbody>
       </table>
     </div>
   );

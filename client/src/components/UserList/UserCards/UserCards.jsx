@@ -1,13 +1,10 @@
 import React from "react";
-import UserCard from "./UserCard/UserCard";
+import "./UserCard/UserCard.css"
 
 const UserCards = ({ paintCards }) => {
   return (
     <>
-      <tbody className="usersTable">
         {paintCards}
-      </tbody>
-
     </>
 
   );

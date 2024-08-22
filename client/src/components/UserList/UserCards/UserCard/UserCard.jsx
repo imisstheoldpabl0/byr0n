@@ -1,5 +1,5 @@
 import React from "react";
-import "./UserCard.css";
+import "../../UserList.css";
 
 const UserCard = ({ user_id, username, email, password }) => {
 

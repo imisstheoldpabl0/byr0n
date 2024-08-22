@@ -4,7 +4,7 @@ import "./UserTopComp.css";
 const UserTopComp = () => {
   return (
     <>
-      <thead className="top-row">
+      <thead>
         <tr>
           <th className="top-row-0lax">user_id</th>
           <th className="top-row-0lax">username</th>
