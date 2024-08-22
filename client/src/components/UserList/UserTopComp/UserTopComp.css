@@ -1,10 +1,9 @@
-.usersTable {
+.top-row {
     border-collapse: collapse;
     border-spacing: 0;
   }
-  
-  .usersTable td, 
-  .usersTable th {
+   
+  .top-row th {
     border-color: black;
     border-style: solid;
     border-width: 1px;
@@ -15,17 +14,17 @@
     word-break: normal;
   }
   
-  .usersTable th {
+  .top-row th {
     font-weight: normal;
-    min-width: 1000px;
+    min-width: 200px;
   }
   
-  .usersTable .usersTable-baqh {
+  .top-row .top-row-baqh {
     text-align: center;
     vertical-align: top;
   }
   
-  .usersTable .usersTable-0lax {
+  .top-row .top-row-0lax {
     text-align: left;
     vertical-align: top;
   }

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./UserList.css";
-import UserCard from "./UserCard/UserCard";
-import UserTopComp from "./UserCard/UserTopComp/UserTopComp";
+import UserCard from "./UserCards/UserCard/UserCard";
+import UserTopComp from "./UserCards/UserCard/UserTopComp/UserTopComp";
+import UserCards from "./UserCards/UserCards";
 
 
 const UserList = () => {
@@ -33,17 +34,17 @@ const UserList = () => {
   const paintCards = () => {
     return cards.length !== 0
       ? cards.map((card, index) => {
-          return (
-            <UserCard
+        return (
+          <UserCard
             key={index}
             user_id={card[0]}
             username={card[1]}
             email={card[2]}
             password={card[3]}
-            />
-            
-          );
-        })
+          />
+
+        );
+      })
       : "";
   };
 
@@ -55,8 +56,10 @@ const UserList = () => {
 
   return (
     <div id="user-list">
-      <UserTopComp/>
-      {paintCards()}
+      <table>
+        <UserTopComp/>
+        <UserCards paintCards={paintCards()}/>
+      </table>
     </div>
   );
 };
