@@ -57,10 +57,10 @@ const UserList = () => {
   return (
     <div id="user-list">
       <table>
-      <tbody className="usersTable">
-        <UserTopComp/>
-        <UserCards paintCards={paintCards()}/>
-      </tbody>
+        <UserTopComp />
+        <tbody className="usersTable">
+          <UserCards paintCards={paintCards()} />
+        </tbody>
       </table>
     </div>
   );

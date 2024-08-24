@@ -1,9 +1,9 @@
 import React from "react";
-import "./UserTopComp.css";
+import "./../../../UserList.css";
 
 const UserTopComp = () => {
   return (
-        <thead className="top-row">
+        <thead className="usersTable">
           <tr>
             <th>user_id</th>
             <th>username</th>
