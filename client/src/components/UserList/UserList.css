@@ -17,7 +17,7 @@
     overflow: hidden;
     padding: 10px 5px;
     word-break: normal;
-    max-width: 80px;
+    min-width: 120px;
   }
   
   .usersTable th {
