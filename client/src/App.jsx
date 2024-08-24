@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import { BrowserRouter } from 'react-router-dom'
 import './App.css'
 
-import Account from './components/Account/Account'
-import UserList from './components/UserList/UserList';
+import Header from "./components/Header/Header"
+import MainComponent from './components/MainComponent/MainComponent';
 
 function App() {
 
   return (
     <>
-      <Account />
-      <UserList/>
+      <BrowserRouter>
+        <Header/>
+        <MainComponent />
+      </BrowserRouter>
     </>
   )
 }
