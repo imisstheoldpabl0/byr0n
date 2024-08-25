@@ -18,7 +18,7 @@ INSERT_USER_RETURN_ID = (
 )
 
 DELETE_ALL_USERS_IN_DB = (
-    """DELETE FROM users"""
+    """DROP TABLE users"""
 )
 
 CHECK_USER_IN_DB = (

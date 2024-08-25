@@ -48,13 +48,14 @@ def create_user():
 
     with connection:
         with connection.cursor() as cursor:
+            cursor.execute(queries.CREATE_USERS_TABLE)
+            
             cursor.execute(queries.CHECK_USER_IN_DB, (username, email))
             existing_user = cursor.fetchone()
             
             if existing_user:
                 return jsonify({"error": "Username or email already exists"}), 409
             
-            cursor.execute(queries.CREATE_USERS_TABLE)
             
             cursor.execute(queries.INSERT_USER_RETURN_ID, (username, email, password, login_status))
             user_id = cursor.fetchone()[0]

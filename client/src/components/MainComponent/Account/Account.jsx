@@ -81,7 +81,7 @@ const SignupForm = () => {
     <>
       <section id="account-section-large-all">
         <section id="larger-section">
-          <form onSubmit={handleSubmitLogin} id="section-account">
+          <form onSubmit={handleSubmit} id="section-account">
             <div>
               <label>Username:</label>
               <input
