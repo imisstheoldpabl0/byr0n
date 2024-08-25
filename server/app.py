@@ -7,6 +7,8 @@ app = Flask(__name__)
 
 CORS(app)
 
+app.secret_key = 'hello123'
+
 # Register the blueprint
 app.register_blueprint(routes)
 

@@ -25,6 +25,10 @@ CHECK_USER_IN_DB = (
     """SELECT id FROM users WHERE username = %s OR email = %s"""
 )
 
+CHECK_LOGIN_CREDENTIALS = (
+    """SELECT id FROM users WHERE username = %s AND password = %s RETURNING id"""
+)
+
 UPDATE_LOGIN_STATUS = (
-    """UPDATE users SET login_status = TRUE WHERE username = %s and password = %s RETURNING id"""
+    """UPDATE users SET login_status = TRUE WHERE username = %s AND password = %s RETURNING id"""
 )

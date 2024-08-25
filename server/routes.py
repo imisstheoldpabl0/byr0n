@@ -7,8 +7,6 @@ import uuid
 # Create a blueprint for your routes
 routes = Blueprint('routes', __name__)
 
-routes.secret_key = "this_is_the_secret_key"
-
 # **: Home route
 @routes.route("/", methods=['GET'])
 def home():
@@ -78,18 +76,18 @@ def login_user():
         with connection.cursor() as cursor:
             cursor.execute(queries.UPDATE_LOGIN_STATUS, (username, password))
             user_id = cursor.fetchone()
-            
-            if user_id:
-                session_token = str(uuid.uuid4())
+        
+        if user_id:
+            session_token = str(uuid.uuid4())
 
-                session['user_id'] = user_id[0]
-                session['session_token'] = session_token
-                
-                return jsonify({
-                    "message": f"User {username} logged in successfully",
-                    "user_id": user_id[0],
-                    "session_token": session_token
-                }), 200
-                
-            else:
-                return jsonify({"error": "Invalid username or password"}), 401
+            session['user_id'] = user_id[0]
+            session['session_token'] = session_token
+            
+            return jsonify({
+                "message": f"User {username} logged in successfully",
+                "user_id": user_id[0],
+                "session_token": session_token
+            }), 200
+            
+        else:
+            return jsonify({"error": "Invalid username or password"}), 401

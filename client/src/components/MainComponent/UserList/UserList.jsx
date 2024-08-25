@@ -17,7 +17,7 @@ const UserList = () => {
         const response = await axios.get(url);
         let users = response.data.data;
 
-        console.log(users);
+        // console.log(users);
 
         setCards(users
           .map(i => i));
