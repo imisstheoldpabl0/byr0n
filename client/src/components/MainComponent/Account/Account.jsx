@@ -7,7 +7,7 @@ const SignupForm = () => {
     username: "",
     email: "",
     password: "",
-    login_status: true,
+    login_status: false,
   });
 
   const handleChange = (e) => {

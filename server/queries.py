@@ -18,5 +18,13 @@ INSERT_USER_RETURN_ID = (
 )
 
 DELETE_ALL_USERS_IN_DB = (
-    """DROP TABLE users"""
+    """DELETE FROM users"""
+)
+
+CHECK_USER_IN_DB = (
+    """SELECT id FROM users WHERE username = %s OR email = %s"""
+)
+
+UPDATE_LOGIN_STATUS = (
+    """UPDATE users SET login_status = TRUE WHERE username = %s and password = %s RETURNING id"""
 )
