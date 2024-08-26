@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./Account.css";
 
@@ -46,7 +46,7 @@ const SignupForm = () => {
       console.log("Response:", response.data);
       // Handle success, maybe show a success message or redirect the user
     } catch (error) {
-      console.error("There was an error!", error);
+      console.log("There was an error!", error);
       // Handle error, maybe show an error message
     }
   };
@@ -80,7 +80,7 @@ const SignupForm = () => {
   const logOutUser = async () => {
     try {
       const response = await axios.post("http://127.0.0.1:8080/api/logout")
-      console.error("Users logget out");
+      console.log(response);
     } catch (error) {
       console.error("There was an error!", error);
     }
@@ -150,7 +150,7 @@ const SignupForm = () => {
             </div>
             <button type="submit" id="log-in-button">Log In</button>
           </form>
-      <button type="submit" id="delete-button" onClick={logOutUser}>Log Out</button>
+      <button type="submit" id="logout-button" onClick={logOutUser}>Log Out</button>
         </section>
       </section>
     </>

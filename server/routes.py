@@ -3,9 +3,21 @@ from db import connection  # Import the connection from db.py
 import queries
 import uuid
 
+from functools import wraps
+from datetime import timedelta
 
 # Create a blueprint for your routes
 routes = Blueprint('routes', __name__)
+
+# Login Decorator (Auth)
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        # Check if the session token is present and valid
+        if 'user_id' not in session or 'session_token' not in session:
+            return jsonify({"error": "Unauthorized access", "message": "user_id or session_token not found"}), 401
+        return f(*args, **kwargs)
+    return decorated_function
 
 # **: Home route
 @routes.route("/", methods=['GET'])
@@ -83,6 +95,8 @@ def login_user():
             session['user_id'] = user_id[0]
             session['session_token'] = session_token
             
+            session.permanent = True
+            
             return jsonify({
                 "message": f"User {username} logged in successfully",
                 "user_id": user_id[0],
@@ -91,3 +105,10 @@ def login_user():
             
         else:
             return jsonify({"error": "Invalid username or password"}), 401
+
+@routes.route("/api/logout", methods=['POST'])
+@login_required
+def logout_user():
+    session.pop('user_id', None)
+    session.pop('session_token', None)
+    return jsonify({"message": "User logged out successfully"}), 200

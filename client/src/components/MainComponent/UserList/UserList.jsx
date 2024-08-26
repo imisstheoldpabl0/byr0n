@@ -13,8 +13,7 @@ const UserList = () => {
     async function fetchData() {
       try {
         // Petición HTTP
-        const url = "http://127.0.0.1:8080/api/user";
-        const response = await axios.get(url);
+        const response = await axios.get("http://127.0.0.1:8080/api/user");
         let users = response.data.data;
 
         // console.log(users);
