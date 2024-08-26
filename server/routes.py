@@ -91,3 +91,9 @@ def login_user():
             
         else:
             return jsonify({"error": "Invalid username or password"}), 401
+        
+@routes.route("/api/logout", methods=['POST'])
+def logout_user():
+    session.pop('user_id', None)
+    session.pop('session_token', None)
+    return jsonify({"message": "User logged out successfully"}), 200

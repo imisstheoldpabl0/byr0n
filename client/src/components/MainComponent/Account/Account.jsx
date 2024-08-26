@@ -80,7 +80,7 @@ const SignupForm = () => {
   const logOutUser = async () => {
     try {
       const response = await axios.post("http://127.0.0.1:8080/api/logout")
-      console.error("Users logget out");
+      console.log(response.data)
     } catch (error) {
       console.error("There was an error!", error);
     }
