@@ -77,6 +77,15 @@ const SignupForm = () => {
     }
   };
 
+  const logOutUser = async () => {
+    try {
+      const response = await axios.post("http://127.0.0.1:8080/api/logout")
+      console.error("Users logget out");
+    } catch (error) {
+      console.error("There was an error!", error);
+    }
+  }
+
   return (
     <>
       <section id="account-section-large-all">
@@ -141,6 +150,7 @@ const SignupForm = () => {
             </div>
             <button type="submit" id="log-in-button">Log In</button>
           </form>
+      <button type="submit" id="delete-button" onClick={logOutUser}>Log Out</button>
         </section>
       </section>
     </>
